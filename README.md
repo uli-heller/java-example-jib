@@ -22,7 +22,16 @@ Here is the test procedure:
 
 trivy image --input build/jib-image.tar \
  --format cyclonedx --output trivy-cdx-jib-sbom.json
+./cdx-2-csv-2.sh <trivy-cdx-jib-sbom.json  >trivy-cdx-jib-sbom.csv
 
 trivy image --input build/jib-image.tar \
  --format spdx-json --output trivy-spdx-jib-sbom.json
+./spdx-2-csv-2.sh <trivy-spdx-jib-sbom.json  >trivy-spdx-jib-sbom.csv
 ```
+
+Here the outcome:
+
+Format   | SBOM (json)                                        | SBOM (csv)
+---------|----------------------------------------------------|-----------
+CycloneDX|[trivy-cdx-jib-sbom.json](trivy-cdx-jib-sbom.json)  |[trivy-cdx-jib-sbom.csv](trivy-cdx-jib-sbom.csv)
+Spdx-Json|[trivy-spdx-jib-sbom.json](trivy-spdx-jib-sbom.json)|[trivy-spdx-jib-sbom.csv](trivy-spdx-jib-sbom.csv)
